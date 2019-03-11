@@ -61,7 +61,12 @@ def print_menu(title, list_options, exit_message):
         None: This function doesn't return anything it only prints to console.
     """
 
-    # your code
+    print(title + ':')
+    i = 1
+    for element in list_options:
+        print('\t' + str([i]) + ' ' + element)
+        i += 1
+    print('\t[0] ' + exit_message)
 
 
 def get_inputs(list_labels, title):
@@ -84,15 +89,20 @@ def get_inputs(list_labels, title):
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
     inputs = []
-
-    # your code
-
+    print(title)
+    for element in list_labels:
+        x = input(element)
+        inputs.append(x)
     return inputs
 
+
 def get_choice(options):
-    print_menu("Main menu",options, "Exit program")
+    title = "Main menu"  # debug
+    exit_message = "Exit program"  # debug
+    print_menu(title, options, exit_message)
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
+
 
 def print_error_message(message):
     """
