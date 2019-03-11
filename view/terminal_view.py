@@ -96,9 +96,7 @@ def get_inputs(list_labels, title):
     return inputs
 
 
-def get_choice(options):
-    title = "Main menu"  # debug
-    exit_message = "Exit program"  # debug
+def get_choice(title, options, exit_message):
     print_menu(title, options, exit_message)
     inputs = get_inputs(["Please enter a number: "], "")
     return inputs[0]
