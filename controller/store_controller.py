@@ -12,6 +12,28 @@ def run():
 
     Returns:
         None
-    """
+        """
 
-    # your code
+    title = "Store manager"
+    options = ["Add item",
+                "Remove item",
+                "Update item",
+                "Show how many different kinds of game are available of each manufacturer",
+                "Show average amount of games in stock of a given manufacturer"]
+    exit_message = "Back to main menu"
+    
+    choice = None
+    while choice != "0":
+        choice = terminal_view.get_choice(title, options, exit_message)
+        if choice == "1":
+            store.add()
+        elif choice == "2":
+            store.remove()
+        elif choice == "3":
+            store.update()
+        elif choice == "4":
+            store.get_counts_by_manufacturers()
+        elif choice == "5":
+            store.get_average_by_manufacturer()
+        else:
+            terminal_view.print_error_message("There is no such choice.")
