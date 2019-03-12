@@ -21,4 +21,32 @@ def generate_random(table):
 
     # your code
 
+    
+    special_characters = ['"', '!', '#', '$', '%', '&', '(', ')', '*', '+', '-','.', '/', ':', '<', '=', '>', '?', '@', '^', '~']
+    numbers = []
+    abc = ['a', 'b', 'c', 'd', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
+    abc_upper = []
+
+    for i in range(0, 10):
+        i = str(i)
+        numbers.append(i)
+    
+    for i in abc:
+        i = i.upper()
+        abc_upper.append(i)
+
+
+    generated = ''.join(
+    random.choice(abc) + 
+    random.choice(abc_upper)+ 
+    random.choice(numbers) +
+    random.choice(numbers) +
+    random.choice(abc_upper) + 
+    random.choice(abc) + 
+    random.choice(special_characters) + 
+    random.choice(special_characters) 
+    )
+
+    generated = table[0]
+
     return generated
