@@ -81,6 +81,21 @@ def get_available_items(table):
     """
 
     # your code
+    index_year = 3
+    index_dur = 4
+    available_items = []
+
+    for item in table:
+        item[index_year] = int(item[index_year])
+        year = int(item[index_year])
+        item[index_dur] = int(item[index_dur])
+        dur = int(item[index_dur])
+
+        if year + dur >= 2017:  
+            available_items.append(item)
+            
+    return available_items
+
 
 
 def get_average_durability_by_manufacturers(table):
@@ -95,3 +110,22 @@ def get_average_durability_by_manufacturers(table):
     """
 
     # your code
+    index_man = 2
+    index_dur = -1
+    list_of_manufacturer = set([item[index_man] for item in table])
+    average_dur_dict = {item: 0 for item in list_of_manufacturer}
+    for item in table:
+        average_dur_dict[item[index_man]] += int(item[index_dur])
+
+    for item in average_dur_dict.keys():
+        counter_occurs = 0
+
+        for item2 in table:
+
+            if item2[index_man] == item:
+                counter_occurs += 1
+
+        average_dur_dict[item] /= counter_occurs
+
+    return average_dur_dict
+
