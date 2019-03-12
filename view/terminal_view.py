@@ -22,7 +22,7 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
 
-    column_width = list()
+    column_width = list() # change it
 
     for i, title in enumerate(title_list):
         column_width.append(len(title))
@@ -55,10 +55,10 @@ def print_table(table, title_list):
             print(' {:{width}} |'.format(str(item).replace('\|\|/', ';'), width=column_width[i]), end="")
         print()
 
-print('\\' + ('-' * (table_size-2)) + '/')
+    print('\\' + ('-' * (table_size-2)) + '/')
 
 
-def print_result(result, label):
+def print_result(result, label): # change it
     """
     Displays results of the special functions.
 
@@ -70,7 +70,19 @@ def print_result(result, label):
         None: This function doesn't return anything it only prints to console.
     """
 
-    # your code
+    print("\n" + label)
+    if type(result) == list:
+        print("")
+        for element in result:
+            print(element)
+        print("")
+    elif type(result) == dict:
+        for key, value in result.items():
+            print(key, value)
+        print("")
+    else:
+        print(result)
+    print("")
 
 
 def print_menu(title, list_options, exit_message):
