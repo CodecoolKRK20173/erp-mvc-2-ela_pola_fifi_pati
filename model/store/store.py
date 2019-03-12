@@ -82,6 +82,22 @@ def get_counts_by_manufacturers(table):
 
     # your code
 
+    
+    counts_by_manufacturers = {}
+    for game in table:
+        manufacturer = game[2]
+
+        if manufacturer in counts_by_manufacturers:
+            counts_by_manufacturers[manufacturer] += 1
+
+        else:
+            counts_by_manufacturers[manufacturer] = 1
+
+    return counts_by_manufacturers
+  
+
+        
+
 
 def get_average_by_manufacturer(table, manufacturer):
     """
@@ -96,3 +112,14 @@ def get_average_by_manufacturer(table, manufacturer):
     """
 
     # your code
+
+    for game in table:
+        games_in_stock = game[4]
+        manufacturer_in_list = game[2]
+        games_counter = 0
+        sum_games_avb = 0
+        if manufacturer_in_list == manufacturer:
+            games_counter += 1
+            sum_games_avb += int(games_in_stock)
+    avg_games = sum_games_avb/games_counter
+    return avg_games
