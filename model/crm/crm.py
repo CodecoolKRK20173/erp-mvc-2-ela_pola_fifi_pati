@@ -42,7 +42,12 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    del table[int(id_)]
+    current_entry_index = 0
+    for entry in table:
+        entry_id_ = entry[0]
+        if entry_id_ == id_:
+            del table[current_entry_index]
+        entry_index += 1
 
     return table
 
@@ -60,7 +65,10 @@ def update(table, id_, record):
         list: table with updated record
     """
 
-    table[int(id_)] = record
+    for entry in table:
+        entry_id_ = entry[0]
+        if entry_id_ == id_:
+            entry = record
 
     return table
 
