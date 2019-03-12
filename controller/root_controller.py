@@ -10,16 +10,18 @@ from controller import common
 
 
 def run():
+    title = "Main Menu"
     options = ["Store manager",
                "Human resources manager",
                "Inventory manager",
                "Accounting manager",
                "Sales manager",
                "Customer Relationship Management (CRM)"]
+    exit_message = "Turn off program"
 
     choice = None
     while choice != "0":
-        choice = terminal_view.get_choice(options)
+        choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
             store_controller.run()
         elif choice == "2":
