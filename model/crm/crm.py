@@ -114,4 +114,10 @@ def get_subscribed_emails(table):
             list: list of strings (where a string is like "email;name")
         """
 
-    # your code
+    subscriptions_list = []   
+    for element in table:
+        subscription = int(element[3])
+        if subscription == 1:
+            subscriptions_list.append(element[2] + ";" + element[1])
+           
+    return subscriptions_list
