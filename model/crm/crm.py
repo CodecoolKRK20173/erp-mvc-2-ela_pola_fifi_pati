@@ -11,6 +11,7 @@ Data table structure:
 # everything you'll need is imported:
 from model import data_manager
 from model import common
+import os
 
 
 def add(table, record):
@@ -59,8 +60,7 @@ def update(table, id_, record):
         list: table with updated record
     """
 
-    remove(table, int(id_))
-    table.insert(int(id_), record)
+    table[int(id_)] = record
 
     return table
 
@@ -80,7 +80,17 @@ def get_longest_name_id(table):
                 the last by alphabetical order of the names)
         """
 
-    # your code
+    longest_name = table[0][1]  # takes the ID and name of first customer
+    for element in table:
+        element_name = element[1]
+        if len(element_name) > len(longest_name):
+            longest_name = element_name
+            id_ = element[0]
+        elif len(element_name) == len(longest_name) and element_name > longest_name:
+            longest_name = element_name
+            id_ = element[0]
+            os.system("clear")
+    return id_
 
 
 # the question: Which customers has subscribed to the newsletter?
