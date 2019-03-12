@@ -24,7 +24,7 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
-    # your code
+    table.append(record)
 
     return table
 
@@ -41,7 +41,7 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    # your code
+    del table[int(id_)]
 
     return table
 
@@ -59,7 +59,8 @@ def update(table, id_, record):
         list: table with updated record
     """
 
-    # your code
+    remove(table, int(id_))
+    table.insert(int(id_), record)
 
     return table
 
