@@ -89,7 +89,20 @@ def get_oldest_person(table):
         list: A list of strings (name or names if there are two more with the same value)
     """
 
-    # your code
+    list_of_oldest_names = []
+
+    oldest_person_birthsday = int(table[0][2])
+
+    for element in table: 
+        person_birthsday = int(element[2])
+        if oldest_person_birthsday > person_birthsday:
+            oldest_person_birthsday = person_birthsday
+    for element in table:
+        person_birthsday = int(element[2])
+        if oldest_person_birthsday == person_birthsday:
+            list_of_oldest_names.append(element[1])
+
+    return list_of_oldest_names
 
 
 def get_persons_closest_to_average(table):
