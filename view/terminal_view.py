@@ -134,11 +134,15 @@ def get_inputs(list_labels, title):
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
     inputs = []
+    index = 0
 
     for element in list_labels:
         x = input(element)
-        inputs.append(x)
+        inputs.insert(index, x)
+        index += 1
+    
 
+        
         
     return inputs
 

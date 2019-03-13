@@ -40,13 +40,15 @@ def run():
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
             record = []
+            index = 0
+            inputs = terminal_view.get_inputs(title_list, title)
+            for i in inputs:
+                record.insert(index, i)
+                index += 1
             store.add(table, record)
-            record.append(terminal_view.get_inputs(title_list, title))
-            record = str(record)
-            record = record.split()
-            data_manager.write_table_to_file(data_file, record)
-            terminal_view.print_table(table, title_list)
-            table = store.add(table, record)
+            
+            data_manager.write_table_to_file(data_file, table)
+            
         elif choice == "2":
             store.remove()
         elif choice == "3":

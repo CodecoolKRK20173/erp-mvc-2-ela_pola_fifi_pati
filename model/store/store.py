@@ -124,15 +124,19 @@ def get_average_by_manufacturer(table, manufacturer):
     """
 
     # your code
-
+    games_counter = 0
+    sum_games_avb = 0
     for game in table:
         games_in_stock = game[4]
         manufacturer_in_list = game[2]
-        games_counter = 0
-        sum_games_avb = 0
-        
+
+   
         if manufacturer_in_list == manufacturer:
             games_counter += 1
             sum_games_avb += int(games_in_stock)
+    
+       
     avg_games = sum_games_avb/games_counter
+
+    
     return avg_games
