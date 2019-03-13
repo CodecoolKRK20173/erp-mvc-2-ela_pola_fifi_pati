@@ -121,3 +121,6 @@ def get_subscribed_emails(table):
             subscriptions_list.append(element[2] + ";" + element[1])
            
     return subscriptions_list
+
+# for testing: 
+# pri..(get_subscribed_emails(data_manager.get_table_from_file("model/crm/customers.csv")))
