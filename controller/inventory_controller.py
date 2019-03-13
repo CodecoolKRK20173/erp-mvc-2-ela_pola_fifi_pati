@@ -45,8 +45,8 @@ def run():
         elif choice == "3":
             inventory.update()
         elif choice == "4":
-            inventory.get_available_items()
+            terminal_view.print_result(inventory.get_available_items(table), "Available items")
         elif choice == "5":
-            inventory.get_average_durability_by_manufacturers()
+            terminal_view.print_result(inventory.get_average_durability_by_manufacturers(table), "Average durability by manufacturers")
         else:
             terminal_view.print_error_message("There is no such choice.")

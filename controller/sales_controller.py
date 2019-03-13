@@ -46,8 +46,10 @@ def run():
         elif choice == "3":
             sales.update()
         elif choice == "4":
-            sales.get_lowest_price_item_id()
+            terminal_view.print_result(sales.get_lowest_price_item_id(table), "ID of item with lowest price")
         elif choice == "5":
-            sales.get_items_sold_between()
+            #dużo inputów, na razie zostawiam, bo się rozjebie
+            month_from = terminal_view.get_inputs(["Month from:"])
+            terminal_view.print_result(sales.get_items_sold_between(table, month_from,day_from,year_from, month_to, day_to, year_to), "Items sold in cetrain time")
         else:
             terminal_view.print_error_message("There is no such choice.")
