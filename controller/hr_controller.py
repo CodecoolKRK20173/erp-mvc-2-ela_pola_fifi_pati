@@ -42,8 +42,8 @@ def run():
         elif choice == "3":
             hr.update()
         elif choice == "4":
-            hr.get_oldest_person()
+            terminal_view.print_result(hr.get_oldest_person(table), "Oldest person")
         elif choice == "5":
-            hr.get_persons_closest_to_average()
+            terminal_view.print_result(hr.get_persons_closest_to_average(table), "Person closest to average")
         else:
             terminal_view.print_error_message("There is no such choice.")
