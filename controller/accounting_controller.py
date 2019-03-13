@@ -2,6 +2,7 @@
 from view import terminal_view
 from model.accounting import accounting
 from controller import common
+from model import data_manager
 
 def run():
     """
@@ -19,6 +20,20 @@ def run():
                 "Which year has a maximum profit",
                 "What is an avarange profit in a given year"]
     exit_message = "Back to main menu"
+
+    title_list = [
+        ['ID'],
+        ['Month'],
+        ['Day'],
+        ['Year'],
+        ['Type'],
+        ['Amount']]
+
+    
+    data_file = "model/accounting/items.csv"
+    table = data_manager.get_table_from_file(data_file)
+    terminal_view.print_table(table, title_list)
+
     
     choice = None
     while choice != "0":

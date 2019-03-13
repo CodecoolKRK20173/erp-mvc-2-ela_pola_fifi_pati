@@ -2,6 +2,7 @@
 from view import terminal_view
 from model.hr import hr
 from controller import common
+from model import data_manager
 
 def run():
     """
@@ -20,6 +21,16 @@ def run():
                 "Show the oldest person",
                 "Show person closest to average age"]
     exit_message = "Back to main menu"
+
+    title_list = [
+        ['ID'],
+        ['Name'],
+        ['Date of birth']]
+
+    
+    data_file = "model/hr/persons.csv"
+    table = data_manager.get_table_from_file(data_file)
+    terminal_view.print_table(table, title_list)
     
     choice = None
     while choice != "0":

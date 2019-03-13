@@ -44,7 +44,7 @@ def print_table(table, title_list):
     for i, title in enumerate(title_list):
         if i == 0:
             print('|', end="")
-        print(' {:{width}} |'.format(title, width=column_width[i]), end="")
+        #print(' {:{width}} |'.format(title, width=column_width[i]), end="")
 
     print('\n' + '|' + ('-' * (table_size-2)) + '|')
 

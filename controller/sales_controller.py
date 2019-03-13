@@ -2,6 +2,7 @@
 from view import terminal_view
 from model.sales import sales
 from controller import common
+from model import data_manager
 
 def run():
     """
@@ -20,6 +21,20 @@ def run():
                 "Show ID of item sold for lowest price",
                 "Show item sold between certain dates"]
     exit_message = "Back to main menu"
+
+    title_list = [
+        ['ID'],
+        ['Title'],
+        ['Price'],
+        ['Month'],
+        ['Day'],
+        ['Year']]
+
+    
+    data_file = "model/sales/sales.csv"
+    table = data_manager.get_table_from_file(data_file)
+    terminal_view.print_table(table, title_list)
+
     
     choice = None
     while choice != "0":

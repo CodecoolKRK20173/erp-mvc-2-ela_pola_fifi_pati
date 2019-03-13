@@ -2,6 +2,7 @@
 from view import terminal_view
 from model.crm import crm
 from controller import common
+from model import data_manager
 
 def run():
     """
@@ -20,6 +21,18 @@ def run():
                 "Longest ID of customer",
                 "Show subscibers"]
     exit_message = "Back to main menu"
+
+    title_list = [
+        ['ID'],
+        ['Name'],
+        ['E-mail address'],
+        ['Subscription']]
+
+    
+    data_file = "model/crm/customers.csv"
+    table = data_manager.get_table_from_file(data_file)
+    terminal_view.print_table(table, title_list)
+
     
     choice = None
     while choice != "0":
