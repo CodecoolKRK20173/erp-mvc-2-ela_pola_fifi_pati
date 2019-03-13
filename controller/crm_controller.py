@@ -44,8 +44,8 @@ def run():
         elif choice == "3":
             crm.update()
         elif choice == "4":
-            crm.get_longest_name_id()
+            terminal_view.print_result(crm.get_longest_name_id(table), "This is the longest ID")
         elif choice == "5":
-            crm.get_subscribed_emails()
+            terminal_view.print_result(crm.get_subscribed_emails(table), "Subscribed e-mails")
         else:
             terminal_view.print_error_message("There is no such choice.")
