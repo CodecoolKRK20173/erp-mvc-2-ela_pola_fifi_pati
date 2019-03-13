@@ -2,6 +2,7 @@
 from view import terminal_view
 from model.inventory import inventory
 from controller import common
+from model import data_manager
 
 def run():
     """
@@ -20,6 +21,19 @@ def run():
                 "Show items that have not exceeded their durability",
                 "Show average durability times for each manufacturer"]
     exit_message = "Back to main menu"
+
+    title_list = [
+        ['ID'],
+        ['Product'],
+        ['Manufacturer'],
+        ['Purchase year'],
+        ['Durability']]
+
+    
+    data_file = "model/inventory/inventory.csv"
+    table = data_manager.get_table_from_file(data_file)
+    terminal_view.print_table(table, title_list)
+
     
     choice = None
     while choice != "0":

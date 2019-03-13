@@ -2,9 +2,11 @@
 from model.store import store
 from view import terminal_view
 from controller import common
+from model import data_manager
 
 
 def run():
+
     """
     Starts this module and displays its menu.
      * User can access default special features from here.
@@ -22,6 +24,18 @@ def run():
                 "Show average amount of games in stock of a given manufacturer"]
     exit_message = "Back to main menu"
     
+    title_list = [
+        ['ID'],
+        ['Name'],
+        ['Manufacturer'],
+        ['Price'],
+        ['Number in stock']]
+
+    
+    data_file = "model/store/games.csv"
+    table = data_manager.get_table_from_file(data_file)
+    terminal_view.print_table(table, title_list)
+
     choice = None
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
