@@ -30,6 +30,7 @@ def add(table, record):
     record.insert(index_id, common.generate_random(table))
     table.append(record)
     data_manager.write_table_to_file("model/accounting/items.csv", table)
+
     return table
 
 

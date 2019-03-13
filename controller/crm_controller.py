@@ -23,7 +23,6 @@ def run():
     exit_message = "Back to main menu"
 
     title_list = [
-        ['ID'],
         ['Name'],
         ['E-mail address'],
         ['Subscription']]
@@ -38,7 +37,16 @@ def run():
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            crm.add()
+            record = []
+            index = 0
+            inputs = terminal_view.get_inputs(title_list, title)
+            for i in inputs:
+                record.insert(index, i)
+                index += 1
+            crm.add(table, record)
+            data_manager.write_table_to_file(data_file, table)
+            terminal_view.print_table(table, title_list)
+            
         elif choice == "2":
             crm.remove()
         elif choice == "3":

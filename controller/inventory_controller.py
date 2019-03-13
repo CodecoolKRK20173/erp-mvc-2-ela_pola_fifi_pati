@@ -23,7 +23,6 @@ def run():
     exit_message = "Back to main menu"
 
     title_list = [
-        ['ID'],
         ['Product'],
         ['Manufacturer'],
         ['Purchase year'],
@@ -39,7 +38,16 @@ def run():
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            inventory.add()
+            record = []
+            index = 0
+            inputs = terminal_view.get_inputs(title_list, title)
+            for i in inputs:
+                record.insert(index, i)
+                index += 1
+            inventory.add(table, record)
+            data_manager.write_table_to_file(data_file, table)
+            terminal_view.print_table(table, title_list)
+            
         elif choice == "2":
             inventory.remove()
         elif choice == "3":

@@ -25,7 +25,10 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
+    index_id = 0
+    record.insert(index_id, common.generate_random(table))
     table.append(record)
+    data_manager.write_table_to_file("model/crm/customers.csv", table)
 
     return table
 
