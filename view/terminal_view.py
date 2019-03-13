@@ -44,7 +44,7 @@ def print_table(table, title_list):
     for i, title in enumerate(title_list):
         if i == 0:
             print('|', end="")
-        #print(' {:{width}} |'.format(title, width=column_width[i]), end="")
+        #print(' {:{width}} |'.format(str(title, width=column_width[i]), end="")
 
     print('\n' + '|' + ('-' * (table_size-2)) + '|')
 
@@ -69,9 +69,9 @@ def print_result(result, label): # change it
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
-
-    print("\n" + label)
-    if type(result) == list:
+    print(label)
+    print(result)
+    '''if type(result) == list:
         print("")
         for element in result:
             print(element)
@@ -82,7 +82,7 @@ def print_result(result, label): # change it
         print("")
     else:
         print(result)
-    print("")
+    print("")'''
 
 
 def print_menu(title, list_options, exit_message):
@@ -134,11 +134,14 @@ def get_inputs(list_labels, title):
             [<user_input_1>, <user_input_2>, <user_input_3>]
     """
     inputs = []
-    print(title)
+
     for element in list_labels:
         x = input(element)
         inputs.append(x)
+
+        
     return inputs
+
 
 
 def get_choice(title, options, exit_message):

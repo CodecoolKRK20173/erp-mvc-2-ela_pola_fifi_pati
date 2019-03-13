@@ -25,7 +25,6 @@ def run():
     exit_message = "Back to main menu"
     
     title_list = [
-        ['ID'],
         ['Name'],
         ['Manufacturer'],
         ['Price'],
@@ -40,14 +39,24 @@ def run():
     while choice != "0":
         choice = terminal_view.get_choice(title, options, exit_message)
         if choice == "1":
-            store.add()
+            record = []
+            store.add(table, record)
+            record.append(terminal_view.get_inputs(title_list, title))
+            record = str(record)
+            record = record.split()
+            data_manager.write_table_to_file(data_file, record)
+            terminal_view.print_table(table, title_list)
+            table = store.add(table, record)
         elif choice == "2":
             store.remove()
         elif choice == "3":
             store.update()
         elif choice == "4":
-            store.get_counts_by_manufacturers()
+            store.get_counts_by_manufacturers(table)
+            terminal_view.print_result(store.get_counts_by_manufacturers(table), 'how many different kinds of game are available of each manufacturer: ')
         elif choice == "5":
-            store.get_average_by_manufacturer()
+            user_input = input('Enter manufacturer:')
+            store.get_average_by_manufacturer(table, user_input)
+            terminal_view.print_result(store.get_average_by_manufacturer(table, user_input), 'Average amount of games in stock. Manufacturer: ' + user_input)
         else:
             terminal_view.print_error_message("There is no such choice.")

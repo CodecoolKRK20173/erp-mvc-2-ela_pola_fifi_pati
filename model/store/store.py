@@ -25,7 +25,12 @@ def add(table, record):
     Returns:
         list: Table with a new record
     """
+    
+    index_id = 0
+    record.insert(index_id, common.generate_random(table))
     table.append(record)
+    data_manager.write_table_to_file("model/store/games.csv", table)
+    
 
     return table
 
@@ -125,6 +130,7 @@ def get_average_by_manufacturer(table, manufacturer):
         manufacturer_in_list = game[2]
         games_counter = 0
         sum_games_avb = 0
+        
         if manufacturer_in_list == manufacturer:
             games_counter += 1
             sum_games_avb += int(games_in_stock)

@@ -4,6 +4,7 @@ implement commonly used functions here
 import random
 
 
+
 def generate_random(table):
     """
     Generates random and unique string. Used for id/key generation:
@@ -47,6 +48,9 @@ def generate_random(table):
     random.choice(special_characters) 
     )
 
-    generated = table[0]
+   
+    for record in table:
+	    if record[0] == generated:
+		    generate_random(table)
 
     return generated
