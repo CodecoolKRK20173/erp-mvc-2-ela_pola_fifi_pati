@@ -50,7 +50,9 @@ def run():
             terminal_view.print_table(table, title_list)
             
         elif choice == "2":
-            store.remove()
+            user_input = input('Enter ID:')
+            store.remove(table, user_input)
+            terminal_view.print_table(table, title_list)
         elif choice == "3":
             store.update()
         elif choice == "4":

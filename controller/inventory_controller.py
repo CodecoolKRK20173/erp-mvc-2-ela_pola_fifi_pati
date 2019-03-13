@@ -49,7 +49,9 @@ def run():
             terminal_view.print_table(table, title_list)
             
         elif choice == "2":
-            inventory.remove()
+            user_input = input('Enter ID:')
+            inventory.remove(table, user_input)
+            terminal_view.print_table(table, title_list)
         elif choice == "3":
             inventory.update()
         elif choice == "4":

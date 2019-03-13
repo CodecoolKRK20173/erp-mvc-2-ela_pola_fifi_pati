@@ -47,7 +47,10 @@ def run():
             data_manager.write_table_to_file(data_file, table)
             terminal_view.print_table(table, title_list)
         elif choice == "2":
-            accounting.remove()
+            user_input = input('Enter ID:')
+            accounting.remove(table, user_input)
+            terminal_view.print_table(table, title_list)
+    
         elif choice == "3":
             accounting.update()
         elif choice == "4":

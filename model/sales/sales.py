@@ -46,15 +46,14 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
-    current_entry_index = 0
+    entry_index = 0
     for entry in table:
         entry_id_ = entry[0]
         if entry_id_ == id_:
-            del table[current_entry_index]
+            del table[entry_index]
         entry_index += 1
 
     return table
-
 
 def update(table, id_, record):
     """
