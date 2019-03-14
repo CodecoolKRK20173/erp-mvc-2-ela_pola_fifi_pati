@@ -46,18 +46,18 @@ def run():
             terminal_view.print_table(table, title_list)
             
         elif choice == "2":
-            user_input = input('Enter ID:')
-            hr.remove(table, user_input)
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
+            hr.remove(table, user_input[0])
             terminal_view.print_table(table, title_list)
         elif choice == "3":
             record = []
             index = 0
-            user_input = input('Enter ID:')
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
             inputs = terminal_view.get_inputs(title_list, title)
             for i in inputs:
                 record.insert(index, i)
                 index += 1
-            hr.update(table, user_input, record)
+            hr.update(table, user_input[0], record)
             terminal_view.print_table(table, title_list)
         elif choice == "4":
             terminal_view.print_result(hr.get_oldest_person(table), "Oldest person")

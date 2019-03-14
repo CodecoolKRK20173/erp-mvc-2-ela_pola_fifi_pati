@@ -49,18 +49,18 @@ def run():
             terminal_view.print_table(table, title_list)
             
         elif choice == "2":
-            user_input = input('Enter ID:')
-            inventory.remove(table, user_input)
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
+            inventory.remove(table, user_input[0])
             terminal_view.print_table(table, title_list)
         elif choice == "3":
             record = []
             index = 0
-            user_input = input('Enter ID:')
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
             inputs = terminal_view.get_inputs(title_list, title)
             for i in inputs:
                 record.insert(index, i)
                 index += 1
-            inventory.update(table, user_input, record)
+            inventory.update(table, user_input[0], record)
             terminal_view.print_table(table, title_list)
         elif choice == "4":
             terminal_view.print_result(inventory.get_available_items(table), "Available items")

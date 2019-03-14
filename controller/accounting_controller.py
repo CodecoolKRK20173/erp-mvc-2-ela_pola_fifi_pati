@@ -21,7 +21,7 @@ def run():
                "Which year has a maximum profit",
                "What is an avarange profit in a given year"]
     exit_message = "Back to main menu"
-
+    
     title_list = [
         ['Month'],
         ['Day'],
@@ -46,20 +46,21 @@ def run():
             accounting.add(table, record)
             data_manager.write_table_to_file(data_file, table)
             terminal_view.print_table(table, title_list)
+        
         elif choice == "2":
-            user_input = input('Enter ID:')
-            accounting.remove(table, user_input)
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
+            accounting.remove(table, user_input[0])
             terminal_view.print_table(table, title_list)
     
         elif choice == "3":
             record = []
             index = 0
-            user_input = input('Enter ID:')
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
             inputs = terminal_view.get_inputs(title_list, title)
             for i in inputs:
                 record.insert(index, i)
                 index += 1
-            accounting.update(table, user_input, record)
+            accounting.update(table, user_input[0], record)
             terminal_view.print_table(table, title_list)
         elif choice == "4":
             terminal_view.print_result(accounting.which_year_max(table), "Year with the highest income: ")

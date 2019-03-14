@@ -50,18 +50,18 @@ def run():
             terminal_view.print_table(table, title_list)
             
         elif choice == "2":
-            user_input = input('Enter ID:')
-            store.remove(table, user_input)
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
+            store.remove(table, user_input[0])
             terminal_view.print_table(table, title_list)
         elif choice == "3":
             record = []
             index = 0
-            user_input = input('Enter ID:')
+            user_input = terminal_view.get_inputs(["Enter ID: "], "")
             inputs = terminal_view.get_inputs(title_list, title)
             for i in inputs:
                 record.insert(index, i)
                 index += 1
-            store.update(table, user_input, record)
+            store.update(table, user_input[0], record)
             terminal_view.print_table(table, title_list)
         elif choice == "4":
             store.get_counts_by_manufacturers(table)
