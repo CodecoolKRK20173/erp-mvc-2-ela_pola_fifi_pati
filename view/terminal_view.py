@@ -22,7 +22,6 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
 
-    item_index = 0
     title_index = 0
     titles = []
     for title in title_list:
@@ -41,7 +40,6 @@ def print_table(table, title_list):
     for width in col_width:
         table_width += width + 3
     print("-" * table_width)
-
 
     for items in table:
         print("|", end="")

@@ -33,14 +33,14 @@ def generate_random(table):
         abc_upper.append(i)
 
     generated = ''.join(
-    random.choice(abc) +
-    random.choice(abc_upper) +
-    random.choice(numbers) +
-    random.choice(numbers) +
-    random.choice(abc_upper) +
-    random.choice(abc) +
-    random.choice(special_characters) +
-    random.choice(special_characters)
+        random.choice(abc) +
+        random.choice(abc_upper) +
+        random.choice(numbers) +
+        random.choice(numbers) +
+        random.choice(abc_upper) +
+        random.choice(abc) +
+        random.choice(special_characters) +
+        random.choice(special_characters)
     )
 
     for record in table:
