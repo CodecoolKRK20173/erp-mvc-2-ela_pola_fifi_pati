@@ -75,4 +75,4 @@ def run():
 
             terminal_view.print_result(sales.get_items_sold_between(table, month_from[0], day_from[0], year_from[0], month_to[0], day_to[0], year_to[0]), "Items sold in cetrain time")
         else:
-            terminal_view.print_error_message("There is no such choice.")
+            terminal_view.print_error_message("You have chosen back to menu.")

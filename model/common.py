@@ -4,7 +4,6 @@ implement commonly used functions here
 import random
 
 
-
 def generate_random(table):
     """
     Generates random and unique string. Used for id/key generation:
@@ -20,10 +19,7 @@ def generate_random(table):
 
     generated = ''
 
-    # your code
-
-    
-    special_characters = ['"', '!', '#', '$', '%', '&', '(', ')', '*', '+', '-','.', '/', ':', '<', '=', '>', '?', '@', '^', '~']
+    special_characters = ['"', '!', '#', '$', '%', '&', '(', ')', '*', '+', '-', '.', '/', ':', '<', '=', '>', '?', '@', '^', '~']
     numbers = []
     abc = ['a', 'b', 'c', 'd', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
     abc_upper = []
@@ -31,26 +27,24 @@ def generate_random(table):
     for i in range(0, 10):
         i = str(i)
         numbers.append(i)
-    
+
     for i in abc:
         i = i.upper()
         abc_upper.append(i)
 
-
     generated = ''.join(
-    random.choice(abc) + 
-    random.choice(abc_upper)+ 
+    random.choice(abc) +
+    random.choice(abc_upper) +
     random.choice(numbers) +
     random.choice(numbers) +
-    random.choice(abc_upper) + 
-    random.choice(abc) + 
-    random.choice(special_characters) + 
-    random.choice(special_characters) 
+    random.choice(abc_upper) +
+    random.choice(abc) +
+    random.choice(special_characters) +
+    random.choice(special_characters)
     )
 
-   
     for record in table:
-	    if record[0] == generated:
-		    generate_random(table)
+        if record[0] == generated:
+            generate_random(table)
 
     return generated

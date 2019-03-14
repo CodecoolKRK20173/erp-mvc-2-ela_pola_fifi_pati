@@ -55,6 +55,7 @@ def remove(table, id_):
     data_manager.write_table_to_file("model/accounting/items.csv", table)
     return table
 
+
 def update(table, id_, record):
     """
     Updates specified record in the table.
@@ -72,7 +73,6 @@ def update(table, id_, record):
     record.insert(index_id, common.generate_random(table))
     table.append(record)
     data_manager.write_table_to_file("model/accounting/items.csv", table)
-
 
     entry_index = 0
     for entry in table:

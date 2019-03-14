@@ -64,4 +64,4 @@ def run():
         elif choice == "5":
             terminal_view.print_result(hr.get_persons_closest_to_average(table), "Person closest to average")
         else:
-            terminal_view.print_error_message("There is no such choice.")
+            terminal_view.print_error_message("You have chosen back to menu.")

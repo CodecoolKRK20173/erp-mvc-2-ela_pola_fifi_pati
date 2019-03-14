@@ -66,4 +66,4 @@ def run():
         elif choice == "5":
             terminal_view.print_result(crm.get_subscribed_emails(table), "Subscribed e-mails")
         else:
-            terminal_view.print_error_message("There is no such choice.")
+            terminal_view.print_error_message("You have chosen back to menu.")

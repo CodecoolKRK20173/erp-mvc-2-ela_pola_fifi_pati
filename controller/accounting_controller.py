@@ -1,7 +1,6 @@
 # everything you'll need is imported:
 from view import terminal_view
 from model.accounting import accounting
-from controller import common
 from model import data_manager
 
 
@@ -21,7 +20,7 @@ def run():
                "Which year has a maximum profit",
                "What is an avarange profit in a given year"]
     exit_message = "Back to main menu"
-    
+
     title_list = [
         ['Month'],
         ['Day'],
@@ -46,12 +45,12 @@ def run():
             accounting.add(table, record)
             data_manager.write_table_to_file(data_file, table)
             terminal_view.print_table(table, title_list)
-        
+
         elif choice == "2":
             user_input = terminal_view.get_inputs(["Enter ID: "], "")
             accounting.remove(table, user_input[0])
             terminal_view.print_table(table, title_list)
-    
+
         elif choice == "3":
             record = []
             index = 0
@@ -68,6 +67,6 @@ def run():
             year = terminal_view.get_inputs(['Year to get average: '], "")
             terminal_view.print_result(accounting.avg_amount(table, year[0]), "Average: ")
         else:
-            terminal_view.print_error_message("There is no such choice.")
+            terminal_view.print_error_message("You have chosen back to menu.")
 
-    # your code
+    # exchanged "There is no such choice." into

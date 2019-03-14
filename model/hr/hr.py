@@ -12,7 +12,6 @@ from model import data_manager
 from model import common
 
 
-
 def add(table, record):
     """
     Add new record to table
@@ -72,7 +71,6 @@ def update(table, id_, record):
     table.append(record)
     data_manager.write_table_to_file("model/hr/persons.csv", table)
 
-
     entry_index = 0
     for entry in table:
         entry_id_ = entry[0]
@@ -84,6 +82,7 @@ def update(table, id_, record):
 
 # special functions:
 # ------------------
+
 
 def get_oldest_person(table):
     """
@@ -108,7 +107,7 @@ def get_oldest_person(table):
     for element in table:
         person_birthsday = int(element[2])
         if person_birthsday == oldest_person_birthsday:
-            list_of_oldest_people.append(element[1]) 
+            list_of_oldest_people.append(element[1])
 
     return list_of_oldest_people
 
@@ -129,7 +128,7 @@ def get_persons_closest_to_average(table):
 
     for element in table:
         years_summed = years_summed + int(element[2])
-    
+
     years_average = years_summed / len(table)
     diff_from_average = abs(int(table[0][2]) - years_average)
 

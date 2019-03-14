@@ -168,8 +168,3 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
         filtered_table[i][4] = int(filtered_table[i][4])
         filtered_table[i][5] = int(filtered_table[i][5])
     return filtered_table
-
-
-
-
-

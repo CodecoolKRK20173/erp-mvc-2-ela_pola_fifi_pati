@@ -71,4 +71,4 @@ def run():
             store.get_average_by_manufacturer(table, user_input)
             terminal_view.print_result(store.get_average_by_manufacturer(table, user_input), 'Average amount of games in stock. Manufacturer: ' + user_input)
         else:
-            terminal_view.print_error_message("There is no such choice.")
+            terminal_view.print_error_message("You have chosen back to menu.")

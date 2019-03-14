@@ -73,7 +73,6 @@ def update(table, id_, record):
     table.append(record)
     data_manager.write_table_to_file("model/inventory/inventory.csv", table)
 
-
     entry_index = 0
     for entry in table:
         entry_id_ = entry[0]
@@ -109,11 +108,10 @@ def get_available_items(table):
         item[index_dur] = int(item[index_dur])
         dur = int(item[index_dur])
 
-        if year + dur >= 2017:  
+        if year + dur >= 2017:
             available_items.append(item)
-            
-    return available_items
 
+    return available_items
 
 
 def get_average_durability_by_manufacturers(table):
@@ -146,4 +144,3 @@ def get_average_durability_by_manufacturers(table):
         average_dur_dict[item] /= counter_occurs
 
     return average_dur_dict
-
