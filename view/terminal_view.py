@@ -1,5 +1,5 @@
 """ Terminal view module """
-
+import os
 
 def print_table(table, title_list):
     """
@@ -22,31 +22,43 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
 
-    title_index = 0
-    titles = []
-    for title in title_list:
-        titles.append(title[title_index])
-    titles.insert(0, "ID")
-
-    col_width = []
-    for title in titles:
-        col_width.append(len(title))
-    for items in table:
-        for i, item in enumerate(items):
-            if col_width[i] < len(str(item)):
-                col_width[i] = len(str(item))
-    table_width = 0
-
-    for width in col_width:
-        table_width += width + 3
-    print("-" * table_width)
+    os.system('clear')
+ 
+    column_width = list()
+    title_list.insert(0, ["ID"])
+    for i, title in enumerate(title_list):
+        column_width.append(len(str(title)))
 
     for items in table:
-        print("|", end="")
         for i, item in enumerate(items):
-            print(' {:^{width}} |'.format(item, width=col_width[i]), end="")
+            try:
+                if column_width[i] < len(str(item)):
+                    column_width[i] = len(str(item))
+            except:
+                column_width.append(len(item))
+
+    table_size = 1
+    for dash in column_width:
+        table_size += (dash + 3)
+
+    print('/', ('-' * (table_size-2)), '\\', sep='')
+
+    for i, title in enumerate(title_list):
+        if i == 0:
+            print('|', end="")
+        print(' {:{width}} |'.format(str(title), width=column_width[i]), end="")
+
+    print('\n' + '|' + ('-' * (table_size-2)) + '|')
+
+    for items in table:
+        for i, item in enumerate(items):
+            if i == 0:
+                print('|', end="")
+            print(' {:{width}} |'.format(str(item).replace('\|\|/', ';'), width=column_width[i]), end="")
         print()
-        print("-" * table_width)
+
+    print('\\' + ('-' * (table_size-2)) + '/')
+
 
 
 def print_result(result, label):
