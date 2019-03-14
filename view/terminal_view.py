@@ -27,10 +27,8 @@ def print_table(table, title_list):
     titles = []
     for title in title_list:
         titles.append(title[title_index])
-    titles.insert(0, "Index")
-    titles.insert(1, "ID")
-    for i, item in enumerate(table, 1):
-        item.insert(item_index, i)
+    titles.insert(0, "ID")
+
     col_width = []
     for title in titles:
         col_width.append(len(title))

@@ -118,9 +118,6 @@ def get_counts_by_manufacturers(table):
             counts_by_manufacturers[manufacturer] = 1
 
     return counts_by_manufacturers
-  
-
-        
 
 
 def get_average_by_manufacturer(table, manufacturer):
