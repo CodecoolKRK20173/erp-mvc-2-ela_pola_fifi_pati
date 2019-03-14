@@ -41,7 +41,7 @@ def print_table(table, title_list):
     for width in col_width:
         table_width += width + 3
     print("-" * table_width)
-    table.insert(item_index, titles)
+
 
     for items in table:
         print("|", end="")

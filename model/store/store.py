@@ -54,8 +54,8 @@ def remove(table, id_):
         entry_id_ = entry[0]
         if entry_id_ == id_:
             del table[entry_index]
-            entry_index += 1
-    data_manager.write_table_to_file("model/accounting/items.csv", table)
+        entry_index += 1
+    data_manager.write_table_to_file("model/store/games.csv", table)
 
 
     return table

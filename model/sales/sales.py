@@ -29,7 +29,7 @@ def add(table, record):
     index_id = 0
     record.insert(index_id, common.generate_random(table))
     table.append(record)
-    data_manager.write_table_to_file("model/sales/inventory.csv", table)
+    data_manager.write_table_to_file("model/sales/sales.csv", table)
 
     return table
 
@@ -52,7 +52,7 @@ def remove(table, id_):
         if entry_id_ == id_:
             del table[entry_index]
         entry_index += 1
-    data_manager.write_table_to_file("model/accounting/items.csv", table)
+    data_manager.write_table_to_file("model/sales/sales.csv", table)
     return table
 
 
@@ -150,8 +150,8 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
         day_to = "0" + day_to
     if len(day_from) == 1:
         day_from = "0" + day_from
-    from_number = int(year_from + month_from + day_from)
-    to_number = int(year_to + month_to + day_to)
+    from_number = int(year_from[0] + month_from[0] + day_from[0])
+    to_number = int(year_to[0] + month_to[0] + day_to[0])
 
     for element in table[:]:
         if len(element[3]) == 1:
