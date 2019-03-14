@@ -150,8 +150,8 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
         day_to = "0" + day_to
     if len(day_from) == 1:
         day_from = "0" + day_from
-    from_number = int(year_from[0] + month_from[0] + day_from[0])
-    to_number = int(year_to[0] + month_to[0] + day_to[0])
+    from_number = int(year_from + month_from + day_from)
+    to_number = int(year_to + month_to + day_to)
 
     for element in table[:]:
         if len(element[3]) == 1:
@@ -173,41 +173,3 @@ def get_items_sold_between(table, month_from, day_from, year_from, month_to, day
 
 
 
-
-
-
-
-
-
-
-"""
-    index_month = 3
-    index_day = 4
-    index_year = 5
-    games_from_to = []
-    for game in table:
-        if year_from < int(game[index_year]) < year_to:
-            games_from_to.append(game)
-        elif year_from <= int(game[index_year]) <= year_to:
-            if month_from < int(game[index_month]) < month_to:
-                games_from_to.append(game)
-            elif int(game[index_month]) == month_from:
-                if int(game[index_day]) > day_from:
-                    games_from_to.append(game)
-            elif int(game[index_month]) == month_to:
-                if int(game[index_day]) < day_to:
-                    games_from_to.append(game)
-    games_from_to = [item[:-1] for item in games_from_to]
-
-    converted_list = []
-    for game in games_from_to:
-        item_list = []
-        for item in game:
-            if item.isdigit():
-                item_list.append(int(item))
-            else:
-                item_list.append(item)
-        converted_list.append(item_list)
-
-    return converted_list
-"""
