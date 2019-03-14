@@ -6,7 +6,6 @@ from controller import inventory_controller
 from controller import accounting_controller
 from controller import sales_controller
 from controller import crm_controller
-from controller import common
 
 
 def run():

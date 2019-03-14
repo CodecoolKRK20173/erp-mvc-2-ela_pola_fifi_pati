@@ -52,7 +52,8 @@ def print_table(table, title_list):
         print()
         print("-" * table_width)
 
-def print_result(result, label): # change it
+
+def print_result(result, label):
     """
     Displays results of the special functions.
 
@@ -134,12 +135,8 @@ def get_inputs(list_labels, title):
         x = input(element)
         inputs.insert(index, x)
         index += 1
-    
 
-        
-        
     return inputs
-
 
 
 def get_choice(title, options, exit_message):

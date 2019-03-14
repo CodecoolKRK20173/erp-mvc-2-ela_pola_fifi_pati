@@ -72,7 +72,6 @@ def update(table, id_, record):
     table.append(record)
     data_manager.write_table_to_file("model/crm/customers.csv", table)
 
-
     entry_index = 0
     for entry in table:
         entry_id_ = entry[0]
@@ -123,13 +122,10 @@ def get_subscribed_emails(table):
             list: list of strings (where a string is like "email;name")
         """
 
-    subscriptions_list = []   
+    subscriptions_list = []
     for element in table:
         subscription = int(element[3])
         if subscription == 1:
             subscriptions_list.append(element[2] + ";" + element[1])
-           
-    return subscriptions_list
 
-# for testing: 
-# pri..(get_subscribed_emails(data_manager.get_table_from_file("model/crm/customers.csv")))
+    return subscriptions_list
