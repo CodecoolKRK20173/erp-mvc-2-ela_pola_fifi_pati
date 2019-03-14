@@ -11,7 +11,6 @@ Data table structure:
 # everything you'll need is imported:
 from model import data_manager
 from model import common
-import os
 
 
 def add(table, record):
@@ -108,7 +107,6 @@ def get_longest_name_id(table):
         elif len(element_name) == len(longest_name) and element_name > longest_name:
             longest_name = element_name
             id_ = element[0]
-            os.system("clear")
     return id_
 
 
