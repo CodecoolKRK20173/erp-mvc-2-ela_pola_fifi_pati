@@ -62,9 +62,8 @@ def print_result(result, label):
     Returns:
         None: This function doesn't return anything it only prints to console.
     """
-    print(label)
-    print(result)
-    '''if type(result) == list:
+    print("\n" + label)
+    if type(result) == list:
         print("")
         for element in result:
             print(element)
@@ -75,7 +74,7 @@ def print_result(result, label):
         print("")
     else:
         print(result)
-    print("")'''
+    print("")
 
 
 def print_menu(title, list_options, exit_message):

@@ -12,6 +12,7 @@ Data table structure:
 # everything you'll need is imported:
 from model import data_manager
 from model import common
+from view import terminal_view
 
 
 def add(table, record):
@@ -144,8 +145,12 @@ def get_average_by_manufacturer(table, manufacturer):
             games_counter += 1
             sum_games_avb += int(games_in_stock)
     
-       
-    avg_games = sum_games_avb/games_counter
+    try:   
+        avg_games = sum_games_avb/games_counter
+    except ZeroDivisionError:
+        terminal_view.print_error_message('There is no such position in table')
+        
+        
 
     
     return avg_games
