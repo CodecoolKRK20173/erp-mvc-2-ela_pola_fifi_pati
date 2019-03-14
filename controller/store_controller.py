@@ -54,7 +54,15 @@ def run():
             store.remove(table, user_input)
             terminal_view.print_table(table, title_list)
         elif choice == "3":
-            store.update()
+            record = []
+            index = 0
+            user_input = input('Enter ID:')
+            inputs = terminal_view.get_inputs(title_list, title)
+            for i in inputs:
+                record.insert(index, i)
+                index += 1
+            store.update(table, user_input, record)
+            terminal_view.print_table(table, title_list)
         elif choice == "4":
             store.get_counts_by_manufacturers(table)
             terminal_view.print_result(store.get_counts_by_manufacturers(table), 'how many different kinds of game are available of each manufacturer: ')

@@ -53,7 +53,15 @@ def run():
             inventory.remove(table, user_input)
             terminal_view.print_table(table, title_list)
         elif choice == "3":
-            inventory.update()
+            record = []
+            index = 0
+            user_input = input('Enter ID:')
+            inputs = terminal_view.get_inputs(title_list, title)
+            for i in inputs:
+                record.insert(index, i)
+                index += 1
+            inventory.update(table, user_input, record)
+            terminal_view.print_table(table, title_list)
         elif choice == "4":
             terminal_view.print_result(inventory.get_available_items(table), "Available items")
         elif choice == "5":

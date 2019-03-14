@@ -54,7 +54,15 @@ def run():
             sales.remove(table, user_input)
             terminal_view.print_table(table, title_list)
         elif choice == "3":
-            sales.update()
+            record = []
+            index = 0
+            user_input = input('Enter ID:')
+            inputs = terminal_view.get_inputs(title_list, title)
+            for i in inputs:
+                record.insert(index, i)
+                index += 1
+            sales.update(table, user_input, record)
+            terminal_view.print_table(table, title_list)
         elif choice == "4":
             terminal_view.print_result(sales.get_lowest_price_item_id(table), "ID of item with lowest price")
         elif choice == "5":

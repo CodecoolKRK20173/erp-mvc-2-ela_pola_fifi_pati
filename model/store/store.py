@@ -47,12 +47,16 @@ def remove(table, id_):
         list: Table without specified record.
     """
 
+
+
     entry_index = 0
     for entry in table:
         entry_id_ = entry[0]
         if entry_id_ == id_:
             del table[entry_index]
-        entry_index += 1
+            entry_index += 1
+
+
 
     return table
 
@@ -70,10 +74,18 @@ def update(table, id_, record):
         list: table with updated record
     """
 
+    index_id = 0
+    record.insert(index_id, common.generate_random(table))
+    table.append(record)
+    data_manager.write_table_to_file("model/store/games.csv", table)
+
+
+    entry_index = 0
     for entry in table:
         entry_id_ = entry[0]
         if entry_id_ == id_:
-            entry = record
+            del table[entry_index]
+        entry_index += 1
 
     return table
 
