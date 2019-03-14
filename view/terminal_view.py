@@ -22,41 +22,35 @@ def print_table(table, title_list):
         None: This function doesn't return anything it only prints to console.
     """
 
-    column_width = list() # change it
-
-    for i, title in enumerate(title_list):
-        column_width.append(len(title))
-
+    item_index = 0
+    title_index = 0
+    titles = []
+    for title in title_list:
+        titles.append(title[title_index])
+    titles.insert(0, "Index")
+    titles.insert(1, "ID")
+    for i, item in enumerate(table, 1):
+        item.insert(item_index, i)
+    col_width = []
+    for title in titles:
+        col_width.append(len(title))
     for items in table:
         for i, item in enumerate(items):
-            try:
-                if column_width[i] < len(str(item)):
-                    column_width[i] = len(str(item))
-            except:
-                column_width.append(len(item))
+            if col_width[i] < len(str(item)):
+                col_width[i] = len(str(item))
+    table_width = 0
 
-    table_size = 1
-    for dash in column_width:
-        table_size += (dash + 3)
-
-    print('/', ('-' * (table_size-2)), '\\', sep='')
-
-    for i, title in enumerate(title_list):
-        if i == 0:
-            print('|', end="")
-        #print(' {:{width}} |'.format(str(title, width=column_width[i]), end="")
-
-    print('\n' + '|' + ('-' * (table_size-2)) + '|')
+    for width in col_width:
+        table_width += width + 3
+    print("-" * table_width)
+    table.insert(item_index, titles)
 
     for items in table:
+        print("|", end="")
         for i, item in enumerate(items):
-            if i == 0:
-                print('|', end="")
-            print(' {:{width}} |'.format(str(item).replace('\|\|/', ';'), width=column_width[i]), end="")
+            print(' {:^{width}} |'.format(item, width=col_width[i]), end="")
         print()
-
-    print('\\' + ('-' * (table_size-2)) + '/')
-
+        print("-" * table_width)
 
 def print_result(result, label): # change it
     """
@@ -165,4 +159,4 @@ def print_error_message(message):
         None: This function doesn't return anything it only prints to console.
     """
 
-    print("\n" + message)
+    print("\n" + str(message))
