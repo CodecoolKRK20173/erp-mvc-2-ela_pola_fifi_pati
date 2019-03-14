@@ -99,24 +99,19 @@ def get_lowest_price_item_id(table):
          string: id
     """
 
-    index_index = 0
-    index_title = 1
-    index_price = 2
-    index_first_game = 0
-    min_price = int(table[index_first_game][index_price])
-    lowest_price_games = []
-    for game in table:
-        if int(game[index_price]) < min_price:
-            min_price = int(game[index_price])
-    for game in table:
-        if int(game[index_price]) == min_price:
-            lowest_price_games.append(game)
-    if len(lowest_price_games) > 1:
-        list_titles = sort_my([game[index_title] for game in lowest_price_games])
-        for game in lowest_price_games:
-            if game[index_title] == list_titles[-1]:
-                return game[index_index]
-    return lowest_price_games[index_index][index_index]
+    price = int(table[0][2])
+    character = str(table[0][1][0]).lower()
+    for element in table:
+        if int(element[2]) < price:
+            price = int(element[2])
+            id_ = element[0]
+            character = str(element[1][0]).lower()
+        elif int(element[2]) == price and str(element[1][0]).lower() > character:
+            price = int(element[2])
+            id_ = element[0]
+            character = str(element[1][0]).lower()
+
+    return id_
 
 
 def get_items_sold_between(table, month_from, day_from, year_from, month_to, day_to, year_to):
