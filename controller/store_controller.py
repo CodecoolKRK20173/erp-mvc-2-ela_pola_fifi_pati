@@ -46,7 +46,6 @@ def run():
                 record.insert(index, i)
                 index += 1
             store.add(table, record)
-            data_manager.write_table_to_file(data_file, table)
             terminal_view.print_table(table, title_list)
             
         elif choice == "2":
