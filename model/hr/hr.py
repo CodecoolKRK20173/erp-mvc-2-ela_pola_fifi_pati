@@ -96,20 +96,21 @@ def get_oldest_person(table):
         list: A list of strings (name or names if there are two more with the same value)
     """
 
-    list_of_oldest_names = []
+    list_of_oldest_people = []
 
     oldest_person_birthsday = int(table[0][2])
 
-    for element in table: 
-        person_birthsday = int(element[2])
-        if oldest_person_birthsday > person_birthsday:
-            oldest_person_birthsday = person_birthsday
     for element in table:
         person_birthsday = int(element[2])
-        if oldest_person_birthsday == person_birthsday:
-            list_of_oldest_names.append(element[1])
+        if person_birthsday < oldest_person_birthsday:
+            oldest_person_birthsday = person_birthsday
 
-    return list_of_oldest_names
+    for element in table:
+        person_birthsday = int(element[2])
+        if person_birthsday == oldest_person_birthsday:
+            list_of_oldest_people.append(element[1]) 
+
+    return list_of_oldest_people
 
 
 def get_persons_closest_to_average(table):
@@ -123,4 +124,21 @@ def get_persons_closest_to_average(table):
         list: list of strings (name or names if there are two more with the same value)
     """
 
-    # your code
+    years_summed = 0
+    closest_to_average = []
+
+    for element in table:
+        years_summed = years_summed + int(element[2])
+    
+    years_average = years_summed / len(table)
+    diff_from_average = abs(int(table[0][2]) - years_average)
+
+    for element in table:
+        if abs(int(element[2]) - years_average) < diff_from_average:
+            diff_from_average = abs(int(element[2]) - years_average)
+
+    for element in table:
+        if abs(int(element[2]) - years_average) == diff_from_average:
+            closest_to_average.append(element[1])
+
+    return closest_to_average
