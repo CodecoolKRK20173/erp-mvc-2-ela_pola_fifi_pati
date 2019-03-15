@@ -47,7 +47,8 @@ def print_table(table, title_list):
     for i, title in enumerate(title_list):
         if i == 0:
             print('|', end="")
-        print(' {:{width}} |'.format(str(title), width=column_width[i]), end="")
+        print(' {:{width}} |'.format(
+            str(title), width=column_width[i]), end="")
 
     print('\n' + '|' + ('-' * (table_size-2)) + '|')
 
@@ -55,11 +56,13 @@ def print_table(table, title_list):
         for i, item in enumerate(items):
             if i == 0:
                 print('|', end="")
-            print(' {:{width}} |'.format(str(item).replace('\|\|/', ';'), width=column_width[i]), end="")
+            print(' {:{width}} |'.format(str(item).replace(
+                '\|\|/', ';'), width=column_width[i]), end="")
         print()
 
     print('\\' + ('-' * (table_size-2)) + '/')
     title_list.pop(0)
+
 
 def print_result(result, label):
     """

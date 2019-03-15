@@ -34,4 +34,5 @@ def run():
         elif choice == "6":
             crm_controller.run()
         else:
-            terminal_view.print_error_message("You have chosen to turn off the program.")
+            terminal_view.print_error_message(
+                "You have chosen to turn off the program.")

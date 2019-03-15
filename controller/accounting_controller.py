@@ -62,10 +62,12 @@ def run():
             accounting.update(table, user_input[0], record)
             terminal_view.print_table(table, title_list)
         elif choice == "4":
-            terminal_view.print_result(accounting.which_year_max(table), "Year with the highest income: ")
+            terminal_view.print_result(accounting.which_year_max(
+                table), "Year with the highest income: ")
         elif choice == "5":
             year = terminal_view.get_inputs(['Year to get average: '], "")
-            terminal_view.print_result(accounting.avg_amount(table, year[0]), "Average: ")
+            terminal_view.print_result(
+                accounting.avg_amount(table, year[0]), "Average: ")
         else:
             terminal_view.print_error_message("You have chosen back to menu.")
 
