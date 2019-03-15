@@ -1,6 +1,7 @@
 """ Terminal view module """
 import os
 
+
 def print_table(table, title_list):
     """
     Prints table with data.
@@ -23,7 +24,7 @@ def print_table(table, title_list):
     """
 
     os.system('clear')
- 
+
     column_width = list()
     title_list.insert(0, ["ID"])
     for i, title in enumerate(title_list):
@@ -34,7 +35,7 @@ def print_table(table, title_list):
             try:
                 if column_width[i] < len(str(item)):
                     column_width[i] = len(str(item))
-            except:
+            except ValueError:
                 column_width.append(len(item))
 
     table_size = 1
@@ -58,8 +59,7 @@ def print_table(table, title_list):
         print()
 
     print('\\' + ('-' * (table_size-2)) + '/')
-
-
+    title_list.pop(0)
 
 def print_result(result, label):
     """
