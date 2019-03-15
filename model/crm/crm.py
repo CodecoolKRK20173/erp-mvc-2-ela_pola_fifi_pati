@@ -129,3 +129,4 @@ def get_subscribed_emails(table):
             subscriptions_list.append(element[2] + ";" + element[1])
 
     return subscriptions_list
+
